@@ -3,8 +3,13 @@
 {% block title %}Employe index{% endblock %}
 
 {% block body %}
-    <h1>Employe index</h1>
-         <a href="{{ path('app_employe_new') }}">Create new</a>
+    <div class="container mt-5em">
+      
+      
+      <div class="row">
+        <h1>Employe index</h1>
+            <button type="button" class="btn btn-outline-secondary text-uppercase my-5 py-2em"><a href="{{ path('app_employe_new') }}" style="text-decoration:none; color: black;">Ajouter nouveau employé</a></botton>
+        </div>
     <table class="table">
         <thead>
             <tr>
@@ -33,7 +38,7 @@
                 <td>{{ employe.poste }}</td>
                 <td>{{ employe.salaire }}</td>
                 <td>{{ employe.dtNaissance ? employe.dtNaissance|date('d-m-Y') : '' }}</td>
-                <td>{{ employe.isactive ? 'Yes' : 'No' }}</td>
+                <td>{{ employe.isactive ? 'No' : 'Yes' }}</td>
                 <td>
                     <a href="{{ path('app_employe_show', {'id': employe.id}) }}">show</a>
                     <a href="{{ path('app_employe_edit', {'id': employe.id}) }}">edit</a>
@@ -46,6 +51,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
    
 {% endblock %}

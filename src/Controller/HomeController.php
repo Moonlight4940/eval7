@@ -10,10 +10,10 @@ use Symfony\Component\Routing\Attribute\Route;
 final class HomeController extends AbstractController
 {
     //http://127.0.0.1:8000/
-    #[Route('/home', name: 'app_home')]
-    public function index(EmployeRepository $employeRepository): Response
+    #[Route('/', name: 'app_home')]
+    public function index(): Response
     {
-        $employe = $employeRepository->findAll();
+        
         return $this->render('home/index.html.twig', [
             'home' => 'HomeController',
         ]);

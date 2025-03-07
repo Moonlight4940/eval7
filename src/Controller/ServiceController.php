@@ -14,7 +14,8 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/service')]
 final class ServiceController extends AbstractController
 {
-    #[Route(name: 'app_service_index', methods: ['GET'])]
+    
+    #[Route('/service', name: 'app_service_index', methods: ['GET'])]
     public function index(ServiceRepository $serviceRepository): Response
     {
         return $this->render('service/index.html.twig', [
