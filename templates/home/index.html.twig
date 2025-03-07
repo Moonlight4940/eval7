@@ -9,8 +9,35 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ home }}! ✅</h1>
+    <h1>{{ home }} ✅</h1>
 
    
+</div>
+<div class="container">
+    <div class="row">
+    {{ dump(chartData) }}
+        <script>
+    const chartData = {{ chartData|json_encode|raw }};
+    const labels = chartData.map(item => item.service);
+    const data = chartData.map(item => item.employeeCount);
+        </script>
+
+        <canvas id="myChart" width="400" height="350"></canvas>
+<script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Number of Employees',
+                data: data,
+                
+            }]
+        },
+       
+    });
+</script>
+    </div>
 </div>
 {% endblock %}
