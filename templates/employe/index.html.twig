@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Employe index</h1>
-
+         <a href="{{ path('app_employe_new') }}">Create new</a>
     <table class="table">
         <thead>
             <tr>
@@ -32,7 +32,7 @@
                 <td>{{ employe.adresse }}</td>
                 <td>{{ employe.poste }}</td>
                 <td>{{ employe.salaire }}</td>
-                <td>{{ employe.dtNaissance ? employe.dtNaissance|date('Y-m-d') : '' }}</td>
+                <td>{{ employe.dtNaissance ? employe.dtNaissance|date('d-m-Y') : '' }}</td>
                 <td>{{ employe.isactive ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('app_employe_show', {'id': employe.id}) }}">show</a>
@@ -47,5 +47,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_employe_new') }}">Create new</a>
+   
 {% endblock %}

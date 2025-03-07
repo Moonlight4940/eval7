@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Service index{% endblock %}
-
+   
 {% block body %}
     <h1>Service index</h1>
-
+    <button type="button" class="btn btn-outline-secondary text-uppercase my-5 py-2em"><a href="{{ path('app_service_new') }}" style="text-decoration:none; color: black;">Créer nouvelle service</a></button>
+ 
     <table class="table">
         <thead>
             <tr>
@@ -21,7 +22,14 @@
                 <td>{{ service.id }}</td>
                 <td>{{ service.nom }}</td>
                 <td>{{ service.description }}</td>
-                <td>{{ service.dtCreation ? service.dtCreation|date('Y-m-d') : '' }}</td>
+                <td>{{ service.dtCreation ? service.dtCreation|date('d-m-Y') : '' }}</td>
+                <td>
+                    <ul>
+                        {% for employe in service.employes %}
+                            <li>{{ employe.prenom }} {{ employe.nom }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
                 <td>
                     <a href="{{ path('app_service_show', {'id': service.id}) }}">show</a>
                     <a href="{{ path('app_service_edit', {'id': service.id}) }}">edit</a>
@@ -35,5 +43,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_service_new') }}">Create new</a>
+    
 {% endblock %}
