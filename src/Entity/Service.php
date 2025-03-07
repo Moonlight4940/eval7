@@ -19,7 +19,7 @@ class Service
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(length: 255)]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
