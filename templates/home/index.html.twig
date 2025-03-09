@@ -15,14 +15,17 @@
 </div>
 <div class="container">
     <div class="row">
-    {{ dump(chartData) }}
+    
         <script>
     const chartData = {{ chartData|json_encode|raw }};
     const labels = chartData.map(item => item.service);
     const data = chartData.map(item => item.employeeCount);
         </script>
 
-        <canvas id="myChart" width="400" height="350"></canvas>
+        <div style="width: 600px; height: 400px;">
+             <canvas id="myChart">
+        </canvas>
+</div>
 <script>
     const ctx = document.getElementById('myChart').getContext('2d');
     new Chart(ctx, {
