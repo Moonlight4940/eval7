@@ -27,7 +27,7 @@ final class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'chartData' => $chartData,
-            'home' => 'Bonjour!'
+            'home' => 'Notre entreprise à la taille humaine'
         ]);
     }
 }
